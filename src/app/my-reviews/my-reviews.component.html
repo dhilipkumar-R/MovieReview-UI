@@ -1,0 +1,19 @@
+
+<div>
+  <p-toolbar>
+    <h5>My Reviews</h5>
+        <button style="background-color:yellowgreen;margin-left: 20px;" mat-raised-button color="blue"
+        (click)="Back()">Back</button>
+  </p-toolbar>
+</div>
+<form #formRef="ngForm">
+  <div *ngFor="let reviews of myReviewsList; let i = index">
+  <p>
+    <label for="comments">Comments</label>
+    <textarea id="comments{{ i }}" name="comments{{ i }}" [(ngModel)]="reviews.comments" ></textarea>
+  </p>
+  <p>
+    <label for="user">Movie : {{reviews.movie}}</label>
+  </p>
+</div>
+</form>

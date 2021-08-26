@@ -1,0 +1,60 @@
+<div>
+  <p-toolbar>
+      <button style="background-color:yellowgreen" mat-raised-button color="blue"
+        (click)="openNew()">Add a Movie</button>
+        <button style="background-color:yellowgreen;margin-left: 20px;" mat-raised-button color="blue"
+        (click)="Back()">Back</button>
+        <button style="background-color:yellowgreen;margin-left: 20px;" mat-raised-button color="blue"
+        (click)="Reviews()">My Reviews</button>
+        <div>User : {{userName}}</div>
+  </p-toolbar>
+</div>
+<div class="card" style="padding-top: 100px;">
+
+  <p-dataTable styleClass="cursorStyle" id="user-cases-table" [value]="dataSource" sortMode="single"
+    reorderableColumns="true" [responsive]="true" [rows]="10" [editable]="true" [paginator]="true"
+    columnResizeMode="fit" [lazy]="true" [loading] ="loadgrid" [pageLinks]="3" [rowsPerPageOptions]="[10, 20, 30,40,50]" loadingIcon="fa-spinner"
+    resizableColumns="true" selectionMode="single" (onRowSelect)="onRowSelect($event)">
+
+    <p-column field="filmname" header="MovieName" [filter]="false" filterPlaceholder="Search" filterMatchMode="contains"
+      [sortable]="true"></p-column>
+    <p-column field="year" header="Released Year" [filter]="false" filterPlaceholder="Search" filterMatchMode="contains"
+      [sortable]="true"></p-column>
+    <p-column field="country" header="Country" [filter]="false" filterPlaceholder="Search" filterMatchMode="contains"
+      [sortable]="true"></p-column>
+    <p-column field="language" header="Language" [filter]="false" filterPlaceholder="Search" filterMatchMode="contains"
+      [sortable]="true"></p-column>
+    <p-column field="genre" header="Genre" [filter]="false" filterPlaceholder="Search" filterMatchMode="contains"
+      [sortable]="true"></p-column>
+    <p-column field="rating" header="Rating" [filter]="false" filterPlaceholder="Search" filterMatchMode="contains"
+      [sortable]="true"></p-column>
+  </p-dataTable>
+</div>
+
+<p-dialog [(visible)]="addnewmoviedialog" [style]="{width: '450px'}" header="Add a New Movie" [modal]="true" styleClass="p-fluid">
+
+    <div class="p-field" style="margin-bottom: 25px;">
+        <label for="name">MovieName</label>
+        <input type="text" style="margin-left: 10px;" pInputText id="name" [(ngModel)]="movie" required autofocus />
+    </div>
+    <div class="p-field" style="margin-bottom: 25px;">
+        <label for="description">Year</label>
+        <input type="number" style="margin-left: 55px;" pInputText id="year" [(ngModel)]="year" required autofocus />
+    </div>
+    <div class="p-field" style="margin-bottom: 25px;">
+      <label for="description">Country</label>
+      <input type="text" style="margin-left: 34px;" pInputText id="country" [(ngModel)]="country" required autofocus />
+  </div>
+  <div class="p-field" style="margin-bottom: 25px;">
+    <label for="description">Language</label>
+    <input type="text" style="margin-left: 20px;" pInputText id="language" [(ngModel)]="language" required autofocus />
+</div>
+<div class="p-field" style="margin-bottom: 25px;">
+  <label for="description">Genre</label>
+  <input type="text" style="margin-left: 43px;" pInputText id="genre" [(ngModel)]="genre" required autofocus />
+</div>
+      <button style="background-color:yellowgreen" mat-raised-button color="primary" (click)="hideDialog()">Cancel</button>
+      <button style="background-color:yellowgreen;margin-left: 20px;" mat-raised-button color="primary"  (click)="saveProduct()">Add</button>
+
+</p-dialog>
+

@@ -1,0 +1,57 @@
+<h5>Title Screen</h5>
+<p-accordion>
+  <p-accordionTab header="Movie" [selected]="true">
+     <div>
+      <div class="p-field">
+        <label for="name">MovieName : {{MovieName}}</label>
+    </div>
+    <div class="p-field">
+        <label for="Year">Year : {{Year}}</label>
+    </div>
+    <div class="p-field">
+      <label for="Country">Country : {{Country}}</label>
+  </div>
+  <div class="p-field">
+    <label for="Language">Language : {{Language}}</label>
+</div>
+<div class="p-field">
+  <label for="Genre">Genre : {{Genre}}</label>
+</div>
+     </div>
+     <div>
+     <video width="400" controls>
+      <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+      Your browser does not support HTML video.
+    </video>
+  </div>
+  <div style="text-align: right;margin-top:-300px">
+    <img  src="./assets/his-dark-materials-season-2-poster-hbo-max.jpg" alt="Trulli" width="500" height="333">
+  </div>
+  </p-accordionTab>
+  <p-accordionTab header="Reviews" [selected]="true">
+    <label for="Kindly">Kindly pour in your reviews for {{MovieName}}</label>
+    <div>
+      <button type="add" (click)="onAdd()">Add</button>
+    </div>
+<form #formRef="ngForm">
+  <div *ngFor="let reviews of ReviewsList; let i = index">
+  <p>
+    <label for="comments">Comments</label>
+    <textarea id="comments{{ i }}" name="comments{{ i }}" [(ngModel)]="reviews.comments" ></textarea>
+  </p>
+  <p>
+    <label for="user">user : {{reviews.user}}</label>
+  </p>
+  <p>
+    <button type="delete" (click)="onDelete(i)">Delete</button>
+  </p>
+</div>
+</form>
+  </p-accordionTab>
+  <p-accordionTab header="Ratings" [selected]="true">
+    <h5>Please rate for us</h5>
+    <p-rating [(ngModel)]="rating" [cancel]="false"></p-rating>
+  </p-accordionTab>
+</p-accordion>
+<button style="background-color:yellowgreen" mat-raised-button color="primary" (click)="Back()">Back</button>
+<button style="background-color:yellowgreen;margin-left: 20px;" mat-raised-button color="primary"  (click)="SaveTitleData()">Save</button>
