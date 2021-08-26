@@ -4,6 +4,7 @@ import { Observable, throwError as observableThrowError } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/catch';
+import {environment} from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,11 +16,12 @@ export class MovieService {
   constructor(
     private http: HttpClient
   ) { }
+private apiUrl = environment.BASE_API_URL;
 
  SaveMovie(formData: any): Observable<any> {
 
   return this.http
-  .post('https://localhost:5001/api/Values/SaveMovieName',
+  .post(`${this.apiUrl}/SaveMovieName`,
      formData,
   )
   .map((response: any) => response)
@@ -29,7 +31,7 @@ export class MovieService {
  SaveTitle(formData: any, rating: any, id: any, user: any): Observable<any> {
 
   return this.http
-  .post(`https://localhost:5001/api/Values/SaveTitle?rating=${rating}&id=${id}&username=${user}`,
+  .post(`${this.apiUrl}/SaveTitle?rating=${rating}&id=${id}&username=${user}`,
      formData,
   )
   .map((response: any) => response)
@@ -39,7 +41,7 @@ export class MovieService {
  GetList(username: any): Observable<any> {
 
   return this.http
-  .get(`https://localhost:5001/api/Values/GetMovieList?username=${username}`)
+  .get(`${this.apiUrl}/GetMovieList?username=${username}`)
   .map((response: any) => response)
   .catch((error: any) => observableThrowError(error));
  }
@@ -47,14 +49,14 @@ export class MovieService {
  GetMyreviews(username: any): Observable<any> {
 
   return this.http
-  .get(`https://localhost:5001/api/Values/GetMyreviews?username=${username}`)
+  .get(`${this.apiUrl}/GetMyreviews?username=${username}`)
   .map((response: any) => response)
   .catch((error: any) => observableThrowError(error));
  }
  GetTitle(id: any, username): Observable<any> {
 
   return this.http
-  .get(`https://localhost:5001/api/Values/GetTitle?id=${id}&user=${username}`)
+  .get(`${this.apiUrl}/GetTitle?id=${id}&user=${username}`)
   .map((response: any) => response)
   .catch((error: any) => observableThrowError(error));
  }
