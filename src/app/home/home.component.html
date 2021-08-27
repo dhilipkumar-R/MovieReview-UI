@@ -3,7 +3,7 @@
       <button style="background-color:yellowgreen" mat-raised-button color="blue"
         (click)="openNew()">Add a Movie</button>
         <button style="background-color:yellowgreen;margin-left: 20px;" mat-raised-button color="blue"
-        (click)="Back()">Back</button>
+        (click)="Back()">LogOut</button>
         <button style="background-color:yellowgreen;margin-left: 20px;" mat-raised-button color="blue"
         (click)="Reviews()">My Reviews</button>
         <div>User : {{userName}}</div>
@@ -39,7 +39,7 @@
     </div>
     <div class="p-field" style="margin-bottom: 25px;">
         <label for="description">Year</label>
-        <input type="number" style="margin-left: 55px;" pInputText id="year" [(ngModel)]="year" required autofocus />
+        <input type="text" style="margin-left: 55px;" pInputText id="year" [(ngModel)]="year" required autofocus />
     </div>
     <div class="p-field" style="margin-bottom: 25px;">
       <label for="description">Country</label>
