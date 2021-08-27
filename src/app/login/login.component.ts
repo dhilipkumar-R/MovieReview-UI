@@ -14,13 +14,20 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   saveusername() {
-    if (this.userName.match(this.emailregex)) {
-      sessionStorage.setItem('username', this.userName);
-      this.route.navigate(['/home']);
+
+    if( this.userName != undefined || this.userName != null) {
+      if (this.userName.match(this.emailregex)) {
+        sessionStorage.setItem('username', this.userName);
+        this.route.navigate(['/home']);
+      } else {
+        alert('Invalid mailID');
+        return false;
+      }
     } else {
-      alert('Invalid mailID');
+      alert('mailID Should not be empty!');
       return false;
     }
+
 
   }
 }
