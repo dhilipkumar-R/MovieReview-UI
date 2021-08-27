@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ey.assisted-frontload.web-app": {
+    "movieReview-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -112,27 +112,27 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ey.assisted-frontload.web-app:build"
+            "browserTarget": "movieReview-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ey.assisted-frontload.web-app:build:production"
+              "browserTarget": "movieReview-app:build:production"
             },
             "uat": {
-              "browserTarget": "ey.assisted-frontload.web-app:build:uat"
+              "browserTarget": "movieReview-app:build:uat"
             },
             "dev": {
-              "browserTarget": "ey.assisted-frontload.web-app:build:dev"
+              "browserTarget": "movieReview-app:build:dev"
             },
             "qa": {
-              "browserTarget": "ey.assisted-frontload.web-app:build:qa"
+              "browserTarget": "movieReview-app:build:qa"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ey.assisted-frontload.web-app:build"
+            "browserTarget": "movieReview-app:build"
           }
         },
         "test": {
@@ -174,7 +174,7 @@
         }
       }
     },
-    "ey.assisted-frontload.web-app-e2e": {
+    "movieReview-app-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -183,7 +183,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "ey.assisted-frontload.web-app:serve"
+            "devServerTarget": "movieReview-app:serve"
           }
         },
         "lint": {
@@ -200,7 +200,7 @@
       }
     }
   },
-  "defaultProject": "ey.assisted-frontload.web-app",
+  "defaultProject": "movieReview-app",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
